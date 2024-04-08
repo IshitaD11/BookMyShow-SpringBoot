@@ -34,4 +34,9 @@ public class Booking extends BaseModel{
     // Booking:Payment == 1:M
     @OneToMany
     private List<Payment> payments;
+
+
+    public void bookSeat(){
+        System.out.println("Booking Seat");
+    }
 }
