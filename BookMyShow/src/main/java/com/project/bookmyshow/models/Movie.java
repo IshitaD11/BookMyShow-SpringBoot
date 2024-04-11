@@ -1,9 +1,7 @@
 package com.project.bookmyshow.models;
 
 import com.project.bookmyshow.models.enums.MovieGenre;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "movies")
 public class Movie extends BaseModel{
 
     private String name;
@@ -23,10 +21,12 @@ public class Movie extends BaseModel{
 
     private int durationInMinutes;
     private Date releaseDate;
+
+    @Enumerated(EnumType.ORDINAL)
     private MovieGenre genre;
 
-    // Movie:Language == 1:M ????
-    @OneToMany
+    // Movie:Language == M:M
+    @ManyToMany
     private List<Language> languages;
 
 

@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "actors")
 public class Actor extends BaseModel{
     private String name;
 }

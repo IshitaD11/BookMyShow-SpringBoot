@@ -1,8 +1,6 @@
 package com.project.bookmyshow.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,16 +8,18 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "regions")
 public class Region extends BaseModel{
 
     private String name;
 
-    // Region:Movie == M:M
-    @ManyToMany
-    private List<Movie> movies;
-
     // Region:Theatre == 1:M
-    @OneToMany
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
     private List<Theatre> theatres;
 }
+
+
+//     Skip this, as we dont want another extra table for m:m mapping
+//    // Region:Movie == M:M
+//    @ManyToMany
+//    private List<Movie> movies;

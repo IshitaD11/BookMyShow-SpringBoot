@@ -1,7 +1,7 @@
 package com.project.bookmyshow.models.enums;
 
 
-public enum ScreenFeatureTypes {
+public enum FeatureTypes {
     DOLBY,
     TWO_D,
     THREE_D,
