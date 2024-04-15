@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 
 @Getter
 @Setter
@@ -13,15 +15,17 @@ public class ShowSeat extends BaseModel{
 
     // ShowSeat:Show == M:M // it will be in multiple show's seat
     @ManyToOne
-    @JoinColumn(name = "show_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "show_id", referencedColumnName = "id")
     private Show show;
 
     // ShowSeat:Seat == M:1  // 1 seat can be used in multiple show's seat
     @ManyToOne
-    @JoinColumn(name = "seat_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "seat_id", referencedColumnName = "id")
     private Seat seat;
 
     @Enumerated
     private SeatStatus seatStatus;
+
+    private Date bookedAt;
 
 }
