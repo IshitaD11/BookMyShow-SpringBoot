@@ -13,6 +13,8 @@ import com.project.bookmyshow.repositoris.ShowSeatRepository;
 import com.project.bookmyshow.repositoris.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,6 +34,7 @@ public class BookingService {
     @Autowired
     BookingRepository bookingRepository;
 
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Booking bookTicket(
             List<Integer> showSeatIds,
             int showId,

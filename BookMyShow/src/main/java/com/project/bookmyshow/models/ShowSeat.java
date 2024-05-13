@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity(name = "show_seats")
 public class ShowSeat extends BaseModel{
 
-    // ShowSeat:Show == M:M // it will be in multiple show's seat
+    // ShowSeat:Show == M:1
     @ManyToOne
     @JoinColumn(name = "show_id", referencedColumnName = "id")
     private Show show;
